@@ -17,11 +17,6 @@ namespace DoctorWho.Db
         public DbSet<Episode>? Episodes { get; set; }
         public DbSet<Companion>? Companions { get; set; }
 
-        public object Entry<T>()
-        {
-            throw new NotImplementedException();
-        }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
