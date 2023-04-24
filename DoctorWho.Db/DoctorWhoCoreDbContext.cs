@@ -65,7 +65,7 @@ namespace DoctorWho.Db
             modelBuilder.Entity<CompanionEpisode>().Property(e=>e.CompanionId).HasColumnName("CompanionsCompanionId");
             modelBuilder.Entity<CompanionEpisode>().Property(e => e.EpisodeId).HasColumnName("EpisodesEpisodeId");
 
-        
+        /*
 
                List<Enemy> enemiesList = new List<Enemy> {
                      new Enemy{EnemyId=1,EnemyName="pain",Description="destroy the word"},
@@ -132,7 +132,7 @@ namespace DoctorWho.Db
                  modelBuilder.Entity<Episode>().HasData(EpisodesList);
                  modelBuilder.Entity<Companion>().HasData(companions);
                  modelBuilder.Entity<EnemyEpisode>().HasData(EnemiesEpisodesList);
-                 modelBuilder.Entity<CompanionEpisode>().HasData(CompanionesEpisodesList);
+                 modelBuilder.Entity<CompanionEpisode>().HasData(CompanionesEpisodesList);*/
         }
 
     }

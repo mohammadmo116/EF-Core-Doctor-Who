@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoctorWho.Db.DTOs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,6 +11,9 @@ namespace DoctorWho.Db.Models
     public class Episode
     {
         public Episode() {
+            
+            Doctor = new Doctor();
+            Author = new Author();
             Companions = new List<Companion>();
             Enemies = new List<Enemy>();
          

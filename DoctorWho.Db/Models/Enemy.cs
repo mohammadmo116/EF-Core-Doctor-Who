@@ -21,5 +21,9 @@ namespace DoctorWho.Db.Models
         public string? Description { get; set; }
         public List<Episode>? Episodes { get; set; }
 
+        public static explicit operator List<object>(Enemy v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
