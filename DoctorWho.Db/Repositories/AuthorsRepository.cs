@@ -16,6 +16,7 @@ namespace DoctorWho.Db.Repositories
         {
             _Context = Context;
         }
+      
         public bool Create(AuthorDto authorDto)
         {
             Author author = new()
@@ -36,8 +37,12 @@ namespace DoctorWho.Db.Repositories
         }
         public bool Remove(int Id)
         {
-            var NumerOfRowsEffected = _Context.Database.ExecuteSqlInterpolated($"DELETE From Authors where AuthorId = {Id}");
+           Author autho= _Context.Authors.FirstOrDefault(x => x.AuthorId == Id) ?? throw new Exception("404 DoctorNotFound");
+            _Context.Authors.Remove(autho);
+            var NumerOfRowsEffected = _Context.SaveChanges();
             return NumerOfRowsEffected > 0;
+           /* var NumerOfRowsEffected = _Context.Database.ExecuteSqlInterpolated($"DELETE From Authors where AuthorId = {Id}");
+            return NumerOfRowsEffected > 0;*/
         }
     }
 }

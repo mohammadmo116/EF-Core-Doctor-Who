@@ -1,5 +1,6 @@
 ﻿using DoctorWho.Db.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,16 @@ namespace DoctorWho.Db
         public DbSet<Episode>? Episodes { get; set; }
         public DbSet<Companion>? Companions { get; set; }
 
+
+        public DoctorWhoCoreDbContext()
+        {
+
+        }
+
+        public DoctorWhoCoreDbContext(DbContextOptions<DoctorWhoCoreDbContext> options) : base(options)
+        {
+
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -62,7 +73,7 @@ namespace DoctorWho.Db
 
       
 
-               List<Enemy> enemiesList = new List<Enemy> {
+               /*List<Enemy> enemiesList = new List<Enemy> {
                      new Enemy{EnemyId=1,EnemyName="pain",Description="destroy the word"},
                      new Enemy{EnemyId=2,EnemyName="obito",Description="waking madara up"},
                      new Enemy{EnemyId=3,EnemyName="Madara",Description="tsokoyome"},
@@ -127,7 +138,7 @@ namespace DoctorWho.Db
                  modelBuilder.Entity<Episode>().HasData(EpisodesList);
                  modelBuilder.Entity<Companion>().HasData(companions);
                  modelBuilder.Entity<EnemyEpisode>().HasData(EnemiesEpisodesList);
-                 modelBuilder.Entity<CompanionEpisode>().HasData(CompanionesEpisodesList);
+                 modelBuilder.Entity<CompanionEpisode>().HasData(CompanionesEpisodesList);*/
         }
 
     }
