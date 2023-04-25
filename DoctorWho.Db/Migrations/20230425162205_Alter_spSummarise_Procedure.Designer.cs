@@ -4,6 +4,7 @@ using DoctorWho.Db;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoctorWho.Db.Migrations
 {
     [DbContext(typeof(DoctorWhoCoreDbContext))]
-    partial class DoctorWhoCoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230425162205_Alter_spSummarise_Procedure")]
+    partial class Alter_spSummarise_Procedure
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,7 +29,7 @@ namespace DoctorWho.Db.Migrations
                     b.Property<string>("companions")
                         .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("FnCompanions", null, t => t.ExcludeFromMigrations());
+                    b.ToTable("FnCompanions", t => t.ExcludeFromMigrations());
                 });
 
             modelBuilder.Entity("DoctorWho.Db.DbFunctions.FnEnemies", b =>
@@ -35,7 +37,7 @@ namespace DoctorWho.Db.Migrations
                     b.Property<string>("Enemies")
                         .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("FnEnemies", null, t => t.ExcludeFromMigrations());
+                    b.ToTable("FnEnemies", t => t.ExcludeFromMigrations());
                 });
 
             modelBuilder.Entity("DoctorWho.Db.DbFunctions.TopThreeEpisodeCompanions", b =>
@@ -46,7 +48,7 @@ namespace DoctorWho.Db.Migrations
                     b.Property<string>("title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("TopThreeEpisodeCompanions", null, t => t.ExcludeFromMigrations());
+                    b.ToTable("TopThreeEpisodeCompanions", t => t.ExcludeFromMigrations());
                 });
 
             modelBuilder.Entity("DoctorWho.Db.DbFunctions.TopThreeEpisodeEnemies", b =>
@@ -57,7 +59,7 @@ namespace DoctorWho.Db.Migrations
                     b.Property<string>("title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("TopThreeEpisodeEnemies", null, t => t.ExcludeFromMigrations());
+                    b.ToTable("TopThreeEpisodeEnemies", t => t.ExcludeFromMigrations());
                 });
 
             modelBuilder.Entity("DoctorWho.Db.DbViews.ViewEpisodes", b =>
@@ -122,7 +124,7 @@ namespace DoctorWho.Db.Migrations
 
                     b.HasKey("AuthorId");
 
-                    b.ToTable("Authors", (string)null);
+                    b.ToTable("Authors");
 
                     b.HasData(
                         new
@@ -169,7 +171,7 @@ namespace DoctorWho.Db.Migrations
 
                     b.HasKey("CompanionId");
 
-                    b.ToTable("Companions", (string)null);
+                    b.ToTable("Companions");
 
                     b.HasData(
                         new
@@ -218,7 +220,7 @@ namespace DoctorWho.Db.Migrations
 
                     b.HasIndex("EpisodeId");
 
-                    b.ToTable("CompanionEpisode", (string)null);
+                    b.ToTable("CompanionEpisode");
 
                     b.HasData(
                         new
@@ -274,7 +276,7 @@ namespace DoctorWho.Db.Migrations
 
                     b.HasKey("DoctorId");
 
-                    b.ToTable("Doctors", (string)null);
+                    b.ToTable("Doctors");
 
                     b.HasData(
                         new
@@ -341,7 +343,7 @@ namespace DoctorWho.Db.Migrations
 
                     b.HasKey("EnemyId");
 
-                    b.ToTable("Enemies", (string)null);
+                    b.ToTable("Enemies");
 
                     b.HasData(
                         new
@@ -390,7 +392,7 @@ namespace DoctorWho.Db.Migrations
 
                     b.HasIndex("EpisodeId");
 
-                    b.ToTable("EnemyEpisode", (string)null);
+                    b.ToTable("EnemyEpisode");
 
                     b.HasData(
                         new
@@ -459,7 +461,7 @@ namespace DoctorWho.Db.Migrations
 
                     b.HasIndex("DoctorId");
 
-                    b.ToTable("Episodes", (string)null);
+                    b.ToTable("Episodes");
 
                     b.HasData(
                         new

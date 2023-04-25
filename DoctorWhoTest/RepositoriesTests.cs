@@ -19,7 +19,7 @@ namespace DoctorWhoTest
         private EpisodesRepository _episode;
         public RepositoriesTests() {
             _builder = new DbContextOptionsBuilder<DoctorWhoCoreDbContext>();
-            _builder.UseInMemoryDatabase("CanInsertAuthorToTheDataBase");
+            _builder.UseInMemoryDatabase("CanInsertAuthorToTheDataBase");      
             _context = new DoctorWhoCoreDbContext(_builder.Options);
             _author=new AuthorsRepository(_context);
             _author.Create(new AuthorDto() { AuthorName = "author1" });

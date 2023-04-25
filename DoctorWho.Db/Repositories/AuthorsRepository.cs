@@ -38,10 +38,10 @@ namespace DoctorWho.Db.Repositories
         public bool Remove(int Id)
         {
            Author autho= _Context.Authors.FirstOrDefault(x => x.AuthorId == Id) ?? throw new Exception("404 DoctorNotFound");
-            _Context.Authors.Remove(autho);
+           _Context.Authors.Remove(autho);
             var NumerOfRowsEffected = _Context.SaveChanges();
             return NumerOfRowsEffected > 0;
-           /* var NumerOfRowsEffected = _Context.Database.ExecuteSqlInterpolated($"DELETE From Authors where AuthorId = {Id}");
+           /*var NumerOfRowsEffected = _Context.Database.ExecuteSqlInterpolated($"DELETE From Authors where AuthorId = {Id}");
             return NumerOfRowsEffected > 0;*/
         }
     }
